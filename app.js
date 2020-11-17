@@ -17,6 +17,9 @@ const security = [
   },
 ];
 const defaultResponses = {
+  400: {
+    description: "Bad Request",
+  },
   401: {
     description: "Unauthorized",
   },
@@ -47,6 +50,12 @@ async function convertSwaggerJSON() {
               (el) => el.name !== "auth"
             );
             reqType.security = security;
+          }
+        }
+        /* responses */
+        for (let status in defaultResponses) {
+          if (!reqType.responses.hasOwnProperty(status)) {
+            reqType.responses[status] = defaultResponses[status];
           }
         }
       }
