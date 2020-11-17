@@ -1,0 +1,11 @@
+{
+  "name": "swaggerjsonfilter",
+  "version": "1.0.0",
+  "description": "Convert swagger.json with single and optimised rule",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
