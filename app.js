@@ -45,7 +45,7 @@ async function convertSwaggerJSON() {
 
         if (reqType.hasOwnProperty("parameters")) {
           let authParam = reqType.parameters.filter((el) => el.name === "auth");
-          if (authParam) {
+          if (authParam.length) {
             reqType.parameters = reqType.parameters.filter(
               (el) => el.name !== "auth"
             );
