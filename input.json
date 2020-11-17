@@ -21,11 +21,11 @@
     "/token": {
       "post": {
         "description": "## API for generating token \n\nParameters\n - id (required,type=String id of user)\n\nResponse\n - authorization token",
-        "summary": "generateToken",
+        "summary": "generate token",
         "tags": [
           "Generate Token"
         ],
-        "operationId": "generateToken",
+        "operationId": "generatetoken",
         "deprecated": false,
         "produces": [
           "application/json; charset=utf-8"
@@ -37,7 +37,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/generateTokenRequest"
+              "$ref": "#/definitions/generatetokenrequest"
             }
           }
         ],
@@ -84,7 +84,7 @@
         }
       }
     },
-    "/channelTypes": {
+    "/channel_types": {
       "get": {
         "description": "## API to get channel types of channel available.\n\nParameters\n - empty\n\nResponse\n - list of channel types",
         "summary": "get channel types",
@@ -3319,7 +3319,7 @@
         }
       }
     },
-    "/channel/{channelId}": {
+    "/channel/{channel_id}": {
       "get": {
         "description": "## API to get channel information by id.\n\nParameters\n - params\n  - channelId (id of channel, generated at response on creating a channel )\n\nResponse\n - get information of particular channel",
         "summary": "get channel by Id",
@@ -3333,7 +3333,7 @@
         ],
         "parameters": [
           {
-            "name": "channelId",
+            "name": "channel_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -3419,6 +3419,68 @@
               "Date": {
                 "type": "string",
                 "default": "Fri, 30 Oct 2020 08:38:04 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "API to get channel information by id.\n\n## API to delete channel  by id.\n\nParameters\n - params\n  - channelId\n\nResponse\n - success",
+        "summary": "delete channel by id",
+        "tags": [
+          "On Platform Channel"
+        ],
+        "operationId": "deletechannelbyid",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "channel_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/deletechannelbyid"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 200,
+                "message": "success",
+                "data": {}
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "44"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"2c-kQyGnR5qaAE6cuCHTeBxZuChDl4\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 30 Oct 2020 08:39:07 GMT"
               },
               "Connection": {
                 "type": "string",
@@ -3546,70 +3608,6 @@
               "Date": {
                 "type": "string",
                 "default": "Fri, 30 Oct 2020 08:38:04 GMT"
-              },
-              "Connection": {
-                "type": "string",
-                "default": "keep-alive"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/channel/{channel_id}": {
-      "delete": {
-        "description": "API to get channel information by id.\n\n## API to delete channel  by id.\n\nParameters\n - params\n  - channelId\n\nResponse\n - success",
-        "summary": "delete channel by id",
-        "tags": [
-          "On Platform Channel"
-        ],
-        "operationId": "deletechannelbyid",
-        "deprecated": false,
-        "produces": [
-          "application/json; charset=utf-8"
-        ],
-        "parameters": [
-          {
-            "name": "channel_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/deletechannelbyid"
-            },
-            "examples": {
-              "application/json; charset=utf-8": {
-                "status": 200,
-                "message": "success",
-                "data": {}
-              }
-            },
-            "headers": {
-              "X-Powered-By": {
-                "type": "string",
-                "default": "Express"
-              },
-              "Access-Control-Allow-Origin": {
-                "type": "string",
-                "default": "*"
-              },
-              "Content-Length": {
-                "type": "string",
-                "default": "44"
-              },
-              "ETag": {
-                "type": "string",
-                "default": "W/\"2c-kQyGnR5qaAE6cuCHTeBxZuChDl4\""
-              },
-              "Date": {
-                "type": "string",
-                "default": "Fri, 30 Oct 2020 08:39:07 GMT"
               },
               "Connection": {
                 "type": "string",
@@ -5707,8 +5705,8 @@
     }
   },
   "definitions": {
-    "generateTokenRequest": {
-      "title": "generateTokenRequest",
+    "generatetokenrequest": {
+      "title": "generatetokenrequest",
       "example": {
         "id": "8"
       },
