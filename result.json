@@ -57,7 +57,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -2870,7 +2875,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -3006,7 +3016,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       },
@@ -3142,6 +3157,8 @@
               "Connection": { "type": "string", "default": "keep-alive" }
             }
           },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
           "403": {
             "description": "Forbidden",
             "schema": { "$ref": "#/definitions/Sendnewmessage1" },
@@ -3161,7 +3178,8 @@
                 "message": "Project with id = 20 not found"
               }
             }
-          }
+          },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -3257,7 +3275,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -3363,7 +3386,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -3413,7 +3441,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -3834,7 +3867,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       },
@@ -3925,7 +3963,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4066,6 +4109,9 @@
               "Connection": { "type": "string", "default": "keep-alive" }
             }
           },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
           "404": {
             "description": "Not Found",
             "schema": { "$ref": "#/definitions/Sendnewmessage1" },
@@ -4075,7 +4121,8 @@
                 "message": "StreamChat error code 16: SendReaction failed with error: \"channel messaging:bryanhertz--jon-snow has been deleted\""
               }
             }
-          }
+          },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4172,7 +4219,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4240,7 +4292,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4289,7 +4346,12 @@
               }
             },
             "headers": {}
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       },
@@ -4361,7 +4423,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4827,7 +4894,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -4889,7 +4961,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -5011,7 +5088,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -5069,6 +5151,8 @@
               "Connection": { "type": "string", "default": "keep-alive" }
             }
           },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
           "403": {
             "description": "Forbidden",
             "schema": { "$ref": "#/definitions/Sendnewmessage1" },
@@ -5078,7 +5162,9 @@
                 "message": "Message cannot be sent since admin of the project has set restricted permissions to connect"
               }
             }
-          }
+          },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -5119,7 +5205,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
@@ -5132,7 +5223,14 @@
         "deprecated": false,
         "produces": ["application/json"],
         "parameters": [],
-        "responses": { "200": { "description": "", "headers": {} } },
+        "responses": {
+          "200": { "description": "", "headers": {} },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
+        },
         "security": [{ "Authorization": [] }]
       }
     },
@@ -5180,7 +5278,12 @@
               },
               "Connection": { "type": "string", "default": "keep-alive" }
             }
-          }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Resource Not Found" },
+          "500": { "description": "Internal Server Error" }
         },
         "security": [{ "Authorization": [] }]
       }
