@@ -1,7 +1,7 @@
 const fs = require("fs");
 const util = require("util");
 var swaggerJson = require("./input.json");
-const host = "localhost:5124";
+const host = "52.172.133.91:5124";
 const basePath = "/api/v1";
 const securityDefinitions = {
   Authorization: {
