@@ -1,6 +1,5 @@
 const fs = require("fs");
 const util = require("util");
-var swaggerJson = require("./input.json");
 const axios = require("axios");
 const apimaticURl = "https://www.apimatic.io";
 const prompt = require("prompt");
