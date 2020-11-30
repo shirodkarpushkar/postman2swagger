@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "Filmio Connect Module REST",
-    "description": "## APIs for on platform messaging .",
+    "description": " APIs for on platform and off platform messaging .",
     "contact": {}
   },
   "host": "example.com",
@@ -74,6 +74,183 @@
               "Date": {
                 "type": "string",
                 "default": "Fri, 13 Nov 2020 08:57:26 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/project/{project_id}": {
+      "patch": {
+        "description": "## API to update on platform  project connect settings\n\nParameters\n - connectMode\n  - type=Int, required \n  - connect_mode = 1 for public, 2 for private, 3 for custom.\n - connect_values\n   - type=Array, optional, default=Null\n   - can take values \"email_verified\",\"kyc_completed\", \"has_accredited\",  \"has_invested\"\n\nResponse\n - success",
+        "summary": "update Project Connection Settings",
+        "tags": [
+          "Project Connect Settings"
+        ],
+        "operationId": "updateProjectConnectionSettings",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/updateProjectConnectionSettingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/updateProjectConnectionSettings"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 200,
+                "message": "Project id = 87 connection settings updated successfully.",
+                "data": {
+                  "fieldCount": 0,
+                  "affectedRows": 1,
+                  "insertId": 0,
+                  "serverStatus": 2,
+                  "warningCount": 0,
+                  "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+                  "protocol41": true,
+                  "changedRows": 0
+                }
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "auth": {
+                "type": "string",
+                "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA2NDAwMDU5LCJleHAiOjE2MDY0MzI0NTl9.rQtHM6eWpP41jFS8HpUYJ-fzjeUMGAcp_wmwWrFMxPc"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "260"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"104-o/AWxbOEpuBNGxkqz2OypvKjYvo\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 26 Nov 2020 14:14:19 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "## API to get Project Connection settings by project id\n\nParameters\n - project_id\n  - type=Int, required \n\nResponse\n - project connect settings",
+        "summary": "get Project Connection Settings by id",
+        "tags": [
+          "Project Connect Settings"
+        ],
+        "operationId": "getProjectConnectionSettingsbyid",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/getProjectConnectionSettingsbyid"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 200,
+                "message": "success",
+                "data": [
+                  {
+                    "project_id": 87,
+                    "connect_mode": "custom",
+                    "connect_values": [
+                      "email_verified",
+                      "has_accredited"
+                    ]
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "auth": {
+                "type": "string",
+                "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA2Mzk3NjkwLCJleHAiOjE2MDY0MzAwOTB9.kFygO1YPvNLH-Zy5-OpDUMdgHww619Pm5a4lng6TrjE"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "138"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"8a-/SuZ1AP5gaSG4PnVq6VnbR6mu/A\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 26 Nov 2020 13:34:50 GMT"
               },
               "Connection": {
                 "type": "string",
@@ -2999,7 +3176,15 @@
         "produces": [
           "application/json; charset=utf-8"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3137,7 +3322,7 @@
         }
       },
       "post": {
-        "description": "## API to create a channel\n\n### Connect to user\nParameters\n- type (optional,type=String, default : \"messaging\"),\n  - available types : \"commerce\",\"gaming\",\"livestream\",\"messaging\" and \"team\"\n- name (optional,type=String, default : logged_user-user_id if not provided)\n- image (optional,type=String (url/base64 encoded string), default: null)\n- color (optional,type=String, default=Null)\n- user_id (required,type=Array, atleast one member id(String) to connect )\n\n### Connect to admin of project\nParameters\n- type (optional,type=String, default : \"messaging\")\n  - available types : \"commerce\",\"gaming\",\"livestream\",\"messaging\" and \"team\"\n- name (optional,type=String, default : project_id-logged_user-user_id if not provided)\n- image (optional,type=String (url/base64 encoded string), default: null)\n- color (optional,type=String, default=Null)\n- project_id (required,type=Int, project id  to connect )",
+        "description": "## API to create a channel\n\n### Connect to user\nParameters\n<!-- - type (optional,type=String, default : \"messaging\"),\n  - available types : \"commerce\",\"gaming\",\"livestream\",\"messaging\" and \"team\"\n- name (optional,type=String, default : logged_user-user_id if not provided)\n- image (optional,type=String (url/base64 encoded string), default: null)\n- color (optional,type=String, default=Null) -->\n- user_id (required,type=Array, atleast one member id(String) to connect )\n\n### Connect to admin of project\nParameters\n<!-- - type (optional,type=String, default : \"messaging\")\n  - available types : \"commerce\",\"gaming\",\"livestream\",\"messaging\" and \"team\"\n- name (optional,type=String, default : project_id-logged_user-user_id if not provided)\n- image (optional,type=String (url/base64 encoded string), default: null)\n- color (optional,type=String, default=Null) -->\n- project_id (required,type=Int, project id  to connect )",
         "summary": "create channel",
         "tags": [
           "On Platform Channel"
@@ -3291,30 +3476,6 @@
                 "default": "keep-alive"
               }
             }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "$ref": "#/definitions/Sendnewmessage1"
-            },
-            "examples": {
-              "application/json": {
-                "status": 403,
-                "message": "Cannot create channel since admin of the project has set restricted permissions to connect"
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/Sendnewmessage1"
-            },
-            "examples": {
-              "application/json": {
-                "status": 404,
-                "message": "Project with id = 20 not found"
-              }
-            }
           }
         }
       }
@@ -3332,6 +3493,13 @@
           "application/json; charset=utf-8"
         ],
         "parameters": [
+          {
+            "name": "auth",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
           {
             "name": "channel_id",
             "in": "path",
@@ -3446,6 +3614,13 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
@@ -3457,7 +3632,7 @@
             "examples": {
               "application/json; charset=utf-8": {
                 "status": 200,
-                "message": "success",
+                "message": "Channel id = 1-8 deleted successfully.",
                 "data": {}
               }
             },
@@ -3470,69 +3645,27 @@
                 "type": "string",
                 "default": "*"
               },
+              "auth": {
+                "type": "string",
+                "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA2MzkyMTM3LCJleHAiOjE2MDY0MjQ1Mzd9._lcvn2uVP5YlLXU2e5NrKPZSZFpPrSvMl5yPOy1xakA"
+              },
               "Content-Length": {
                 "type": "string",
-                "default": "44"
+                "default": "75"
               },
               "ETag": {
                 "type": "string",
-                "default": "W/\"2c-kQyGnR5qaAE6cuCHTeBxZuChDl4\""
+                "default": "W/\"4b-5ta1dFQEtJkpn7M4xy0wrYzVrkE\""
               },
               "Date": {
                 "type": "string",
-                "default": "Fri, 30 Oct 2020 08:39:07 GMT"
+                "default": "Thu, 26 Nov 2020 12:02:18 GMT"
               },
               "Connection": {
                 "type": "string",
                 "default": "keep-alive"
               }
             }
-          }
-        }
-      }
-    },
-    "/project/{project_id}": {
-      "patch": {
-        "description": "## API to update on platform  project connect settings\n\nParameters\n - connectMode\n  - type=Int, required \n  - connect_mode = 1 for public, 2 for private, 3 for custom.\n - connect_values\n   - type=Array, optional, default=Null\n   - can take values \"email_verified\",\"kyc_completed\", \"has_accredited\",  \"has_invested\"\n\nResponse\n - success",
-        "summary": "update Project Connection Settings",
-        "tags": [
-          "On Platform Channel"
-        ],
-        "operationId": "updateProjectConnectionSettings",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "description": ""
-          },
-          {
-            "name": "auth",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/updateProjectConnectionSettingsRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
           }
         }
       }
@@ -3987,7 +4120,7 @@
         }
       },
       "post": {
-        "description": "## API to get all messages from a channel by id.\n\nParameters\n - text (optional,type=String, default=null, text message to be sent)\n - attachments (optional,type=Array, default=null, attachments if any)\n - mentioned_users (optional,type=Array, default=null, id of user in string)\n - silent(optional,type=Boolean, default=False , option to make message silent)\n\nResponse\n - last sent message with id",
+        "description": "## API to send and reply to message\n\n### To send message from a channel by id.\n\nParameters\n - params\n   - channel_id\n - body\n   - text (optional,type=String, default=null, text message to be sent)\n   - attachments (optional,type=Array, default=null, attachments if any)\n   - mentioned_users (optional,type=Array, default=null, id of user in string)\n   - silent(optional,type=Boolean, default=False , option to make message silent)\n\nResponse\n - last sent message with id\n\n### To reply to a message by message id.\n\n\nParameters\n - params\n   - channel_id\n - body\n   - text (optional,type=String, default=null, text message to be sent)\n   - parent_id(required,type=String, default=null, id of message)\n   - show_in_channel (optional,type=Boolean, default=True, option to show in channel / thread)\n\n\nResponse\n - last sent message with id",
         "summary": "send channel message",
         "tags": [
           "On Platform Channel"
@@ -4280,9 +4413,9 @@
         }
       }
     },
-    "/channel/{channel_id}/messages/replies": {
+    "/channel/{channel_id}/messages/{parent_message_id}/replies": {
       "get": {
-        "description": "## API to get all replies to message by parent message Id.\n\n\nParameters\n - params\n   - channel_id\n - query \n   - parent_message_id (required,type=String, default=null, id of message)\n   - limit(optional,type=INT, default=null, applying limit)\n\nResponse\n - last sent message with id",
+        "description": "## API to get all replies to message by parent message Id.\n\n\nParameters\n - params\n   - channel_id (required,type=String,  id of channel)\n   - parent_message_id (required,type=String,  id of message)\n   \n - query \n   - limit(optional,type=INT, default=null, applying limit)\n\nResponse\n - last sent message with id",
         "summary": "get threads / replies",
         "tags": [
           "On Platform Channel"
@@ -4294,18 +4427,25 @@
         ],
         "parameters": [
           {
-            "name": "parent_message_id",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
             "name": "limit",
             "in": "query",
             "required": true,
             "type": "integer",
             "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "parent_message_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
             "description": ""
           },
           {
@@ -4499,6 +4639,13 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
@@ -4545,6 +4692,13 @@
           "application/json; charset=utf-8"
         ],
         "parameters": [
+          {
+            "name": "auth",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
           {
             "name": "Body",
             "in": "body",
@@ -4639,6 +4793,13 @@
             "required": true,
             "type": "integer",
             "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
             "description": ""
           }
         ],
@@ -5135,6 +5296,13 @@
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
@@ -5194,7 +5362,7 @@
     },
     "/filmiousers": {
       "get": {
-        "description": "API to get all stream user",
+        "description": "API to get all stream user\r\n(For debugging purpose only )",
         "summary": "get all filmioDB users",
         "tags": [
           "On Platform GDPR"
@@ -5478,6 +5646,7 @@
     },
     "/users/ping": {
       "get": {
+        "description": "(For debugging purpose only )",
         "summary": "get trasactional api status",
         "tags": [
           "Off Platform Email Messaging"
@@ -5533,6 +5702,7 @@
     },
     "/users/senders": {
       "get": {
+        "description": "(For debugging purpose only )",
         "summary": "get all senders",
         "tags": [
           "Off Platform Email Messaging"
@@ -5540,20 +5710,236 @@
         "operationId": "getallsenders",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "parameters": [],
         "responses": {
           "200": {
             "description": "",
-            "headers": {}
+            "schema": {
+              "$ref": "#/definitions/getallsenders"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 200,
+                "message": "success",
+                "data": [
+                  {
+                    "sent": 95,
+                    "hard_bounces": 1,
+                    "soft_bounces": 0,
+                    "rejects": 0,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 181,
+                    "clicks": 56,
+                    "unique_opens": 72,
+                    "unique_clicks": 14,
+                    "reputation": 0,
+                    "address": "bryan@filmio.com",
+                    "created_at": "2017-05-30 22:47:13.3244"
+                  },
+                  {
+                    "sent": 0,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 1,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 0,
+                    "clicks": 0,
+                    "unique_opens": 0,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "bryan@filmio.cpm",
+                    "created_at": "2017-05-30 22:38:01.70104"
+                  },
+                  {
+                    "sent": 40,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 0,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 18,
+                    "clicks": 0,
+                    "unique_opens": 10,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "cjd@filmio.com",
+                    "created_at": "2017-05-30 22:46:29.36939"
+                  },
+                  {
+                    "sent": 0,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 4,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 0,
+                    "clicks": 0,
+                    "unique_opens": 0,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "cjd@filmio.cpm",
+                    "created_at": "2017-05-30 22:39:44.47547"
+                  },
+                  {
+                    "sent": 3,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 0,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 17,
+                    "clicks": 0,
+                    "unique_opens": 3,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "corey@filmio.com",
+                    "created_at": "2020-07-07 17:02:07.22165"
+                  },
+                  {
+                    "sent": 0,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 1,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 0,
+                    "clicks": 0,
+                    "unique_opens": 0,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "coreytest3@test.com",
+                    "created_at": "2020-09-01 23:37:01.14727"
+                  },
+                  {
+                    "sent": 40,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 0,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 73,
+                    "clicks": 0,
+                    "unique_opens": 32,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "ian@filmio.com",
+                    "created_at": "2017-09-20 22:48:47.17556"
+                  },
+                  {
+                    "sent": 3,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 0,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 4,
+                    "clicks": 0,
+                    "unique_opens": 3,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "notifications@filmio.com",
+                    "created_at": "2020-09-03 15:44:43.98307"
+                  },
+                  {
+                    "sent": 0,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 1,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 0,
+                    "clicks": 0,
+                    "unique_opens": 0,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "submissions@film.io",
+                    "created_at": "2020-10-27 17:04:56.25006"
+                  },
+                  {
+                    "sent": 28,
+                    "hard_bounces": 2,
+                    "soft_bounces": 1,
+                    "rejects": 7,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 65,
+                    "clicks": 0,
+                    "unique_opens": 20,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "submissions@filmio.com",
+                    "created_at": "2020-10-27 17:08:24.8404"
+                  },
+                  {
+                    "sent": 0,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 1,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 0,
+                    "clicks": 0,
+                    "unique_opens": 0,
+                    "unique_clicks": 0,
+                    "reputation": 0,
+                    "address": "waitlist@film.io",
+                    "created_at": "2020-08-20 20:35:50.45873"
+                  },
+                  {
+                    "sent": 69,
+                    "hard_bounces": 0,
+                    "soft_bounces": 0,
+                    "rejects": 36,
+                    "complaints": 0,
+                    "unsubs": 0,
+                    "opens": 70,
+                    "clicks": 2,
+                    "unique_opens": 63,
+                    "unique_clicks": 1,
+                    "reputation": 0,
+                    "address": "waitlist@filmio.com",
+                    "created_at": "2020-08-20 20:13:59.65354"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "2766"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"ace-EiYGglNwIt87kSAFd3H/uYGL5dY\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Thu, 26 Nov 2020 14:15:15 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
           }
         }
       }
     },
     "/messages/search": {
       "get": {
-        "description": "## API to serach email messages.\r\n\r\n\r\n\r\nParameters\r\n\r\n - query \r\n   - query(optional,type=String, default=null, eg. email:gmail.com)\r\n   - date_from(optional,type=String, default=null, eg. 2020-10-11)\r\n   - date_to(optional,type=String, default=null, eg. 2020-10-11)\r\n   - limit(optional,type=String, default=null, applying limit)\r\n\r\nResponse\r\n - success with user data",
+        "description": "## API to serach email messages.\r\n\r\n(For debugging purpose only )\r\n\r\nParameters\r\n\r\n - query \r\n   - query(optional,type=String, default=null, eg. email:gmail.com)\r\n   - date_from(optional,type=String, default=null, eg. 2020-10-11)\r\n   - date_to(optional,type=String, default=null, eg. 2020-10-11)\r\n   - limit(optional,type=String, default=null, applying limit)\r\n\r\nResponse\r\n - success with user data",
         "summary": "search messages",
         "tags": [
           "Off Platform Email Messaging"
@@ -5564,6 +5950,35 @@
           "application/json; charset=utf-8"
         ],
         "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "date_from",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "date_to",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
           {
             "name": "auth",
             "in": "header",
@@ -5627,7 +6042,7 @@
     "generatetokenrequest": {
       "title": "generatetokenrequest",
       "example": {
-        "id": "8"
+        "id": "2"
       },
       "type": "object",
       "properties": {
@@ -5663,6 +6078,194 @@
         "status",
         "message",
         "data"
+      ]
+    },
+    "updateProjectConnectionSettingsRequest": {
+      "title": "updateProjectConnectionSettingsRequest",
+      "example": {
+        "connect_mode": 3,
+        "connect_values": [
+          "email_verified",
+          "has_accredited"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "connect_mode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "connect_values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "connect_mode",
+        "connect_values"
+      ]
+    },
+    "updateProjectConnectionSettings": {
+      "title": "updateProjectConnectionSettings",
+      "example": {
+        "status": 200,
+        "message": "Project id = 87 connection settings updated successfully.",
+        "data": {
+          "fieldCount": 0,
+          "affectedRows": 1,
+          "insertId": 0,
+          "serverStatus": 2,
+          "warningCount": 0,
+          "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+          "protocol41": true,
+          "changedRows": 0
+        }
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Data": {
+      "title": "Data",
+      "example": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 0
+      },
+      "type": "object",
+      "properties": {
+        "fieldCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "affectedRows": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "insertId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serverStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "warningCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "protocol41": {
+          "type": "boolean"
+        },
+        "changedRows": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "fieldCount",
+        "affectedRows",
+        "insertId",
+        "serverStatus",
+        "warningCount",
+        "message",
+        "protocol41",
+        "changedRows"
+      ]
+    },
+    "getProjectConnectionSettingsbyid": {
+      "title": "getProjectConnectionSettingsbyid",
+      "example": {
+        "status": 200,
+        "message": "success",
+        "data": [
+          {
+            "project_id": 87,
+            "connect_mode": "custom",
+            "connect_values": [
+              "email_verified",
+              "has_accredited"
+            ]
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data1"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Data1": {
+      "title": "Data1",
+      "example": {
+        "project_id": 87,
+        "connect_mode": "custom",
+        "connect_values": [
+          "email_verified",
+          "has_accredited"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "connect_mode": {
+          "type": "string"
+        },
+        "connect_values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "project_id",
+        "connect_mode",
+        "connect_values"
       ]
     },
     "getchanneltypes": {
@@ -8529,7 +9132,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data"
+          "$ref": "#/definitions/Data2"
         }
       },
       "required": [
@@ -8538,8 +9141,8 @@
         "data"
       ]
     },
-    "Data": {
-      "title": "Data",
+    "Data2": {
+      "title": "Data2",
       "example": {
         "channel_types": {
           "commerce": {
@@ -19341,7 +19944,7 @@
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Data1"
+            "$ref": "#/definitions/Data3"
           }
         }
       },
@@ -19351,8 +19954,8 @@
         "data"
       ]
     },
-    "Data1": {
-      "title": "Data1",
+    "Data3": {
+      "title": "Data3",
       "example": {
         "id": "vue-chatee",
         "type": "messaging",
@@ -19674,7 +20277,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data2"
+          "$ref": "#/definitions/Data4"
         }
       },
       "required": [
@@ -19683,8 +20286,8 @@
         "data"
       ]
     },
-    "Data2": {
-      "title": "Data2",
+    "Data4": {
+      "title": "Data4",
       "example": {
         "id": "vue-chatee",
         "type": "messaging",
@@ -19833,71 +20436,20 @@
         "name"
       ]
     },
-    "updateProjectConnectionSettingsRequest": {
-      "title": "updateProjectConnectionSettingsRequest",
-      "example": {
-        "connect_mode": 3,
-        "connect_values": [
-          "emailverified",
-          "hasaccrediated"
-        ]
-      },
-      "type": "object",
-      "properties": {
-        "connect_mode": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "connect_values": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "connect_mode",
-        "connect_values"
-      ]
-    },
     "createchannelrequest": {
       "title": "createchannelrequest",
       "example": {
-        "user_id": [
-          "1"
-        ],
-        "type": "messaging",
-        "name": "Private Conversation",
-        "image": "https://bit.ly/2F3KEoM",
-        "color": "green"
+        "project_id": 87
       },
       "type": "object",
       "properties": {
-        "user_id": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "type": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string"
-        },
-        "color": {
-          "type": "string"
+        "project_id": {
+          "type": "integer",
+          "format": "int32"
         }
       },
       "required": [
-        "user_id",
-        "type",
-        "name",
-        "image",
-        "color"
+        "project_id"
       ]
     },
     "createchannelwithproject": {
@@ -20004,7 +20556,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data3"
+          "$ref": "#/definitions/Data5"
         }
       },
       "required": [
@@ -20013,8 +20565,8 @@
         "data"
       ]
     },
-    "Data3": {
-      "title": "Data3",
+    "Data5": {
+      "title": "Data5",
       "example": {
         "channel": {
           "id": "572-8-1",
@@ -20386,7 +20938,7 @@
       "title": "deletechannelbyid",
       "example": {
         "status": 200,
-        "message": "success",
+        "message": "Channel id = 1-8 deleted successfully.",
         "data": {}
       },
       "type": "object",
@@ -20804,7 +21356,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data4"
+          "$ref": "#/definitions/Data6"
         }
       },
       "required": [
@@ -20813,8 +21365,8 @@
         "data"
       ]
     },
-    "Data4": {
-      "title": "Data4",
+    "Data6": {
+      "title": "Data6",
       "example": {
         "channel": {
           "id": "vue-chatee",
@@ -21662,14 +22214,13 @@
         "attachments": [
           {
             "type": "image",
-            "asset_url": "https://bit.ly/2K74TaG",
-            "thumb_url": "https://bit.ly/2Uumxti",
-            "myCustomField": 123
+            "image_url": "https://bit.ly/2K74TaG"
           }
         ],
-        "mentioned_users": [],
-        "silent": false,
-        "anotherCustomField": 234
+        "mentioned_users": [
+          "8"
+        ],
+        "silent": false
       },
       "type": "object",
       "properties": {
@@ -21690,49 +22241,33 @@
         },
         "silent": {
           "type": "boolean"
-        },
-        "anotherCustomField": {
-          "type": "integer",
-          "format": "int32"
         }
       },
       "required": [
         "text",
         "attachments",
         "mentioned_users",
-        "silent",
-        "anotherCustomField"
+        "silent"
       ]
     },
     "Attachment1": {
       "title": "Attachment1",
       "example": {
         "type": "image",
-        "asset_url": "https://bit.ly/2K74TaG",
-        "thumb_url": "https://bit.ly/2Uumxti",
-        "myCustomField": 123
+        "image_url": "https://bit.ly/2K74TaG"
       },
       "type": "object",
       "properties": {
         "type": {
           "type": "string"
         },
-        "asset_url": {
+        "image_url": {
           "type": "string"
-        },
-        "thumb_url": {
-          "type": "string"
-        },
-        "myCustomField": {
-          "type": "integer",
-          "format": "int32"
         }
       },
       "required": [
         "type",
-        "asset_url",
-        "thumb_url",
-        "myCustomField"
+        "image_url"
       ]
     },
     "sendchannelmessage": {
@@ -21788,7 +22323,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data5"
+          "$ref": "#/definitions/Data7"
         }
       },
       "required": [
@@ -21797,8 +22332,8 @@
         "data"
       ]
     },
-    "Data5": {
-      "title": "Data5",
+    "Data7": {
+      "title": "Data7",
       "example": {
         "message": {
           "id": "b270c5ee-b801-49f8-9302-4b261f161ad4",
@@ -21906,7 +22441,7 @@
         "attachments": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Attachment1"
+            "$ref": "#/definitions/Attachment2"
           }
         },
         "latest_reactions": {
@@ -21972,6 +22507,37 @@
         "mentioned_users",
         "silent",
         "anotherCustomField"
+      ]
+    },
+    "Attachment2": {
+      "title": "Attachment2",
+      "example": {
+        "type": "image",
+        "thumb_url": "https://bit.ly/2Uumxti",
+        "asset_url": "https://bit.ly/2K74TaG",
+        "myCustomField": 123
+      },
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "thumb_url": {
+          "type": "string"
+        },
+        "asset_url": {
+          "type": "string"
+        },
+        "myCustomField": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "type",
+        "thumb_url",
+        "asset_url",
+        "myCustomField"
       ]
     },
     "addreactionrequest": {
@@ -22098,7 +22664,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data6"
+          "$ref": "#/definitions/Data8"
         }
       },
       "required": [
@@ -22107,8 +22673,8 @@
         "data"
       ]
     },
-    "Data6": {
-      "title": "Data6",
+    "Data8": {
+      "title": "Data8",
       "example": {
         "message": {
           "id": "714f7a13-aaee-4a39-bc7b-465de57cb76a",
@@ -22621,7 +23187,7 @@
       "title": "replytoamessagerequest",
       "example": {
         "text": "Hey, I am replying to a message!",
-        "parent_id": "714f7a13-aaee-4a39-bc7b-465de57cb76a",
+        "parent_id": "b15e8c3d-1b4d-4cd9-9cc1-b10c5b78059c",
         "show_in_channel": true
       },
       "type": "object",
@@ -22689,7 +23255,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data7"
+          "$ref": "#/definitions/Data9"
         }
       },
       "required": [
@@ -22698,8 +23264,8 @@
         "data"
       ]
     },
-    "Data7": {
-      "title": "Data7",
+    "Data9": {
+      "title": "Data9",
       "example": {
         "message": {
           "id": "c7d7ce64-cd24-4247-92c7-89f0c7f6b1ec",
@@ -22915,7 +23481,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data8"
+          "$ref": "#/definitions/Data10"
         }
       },
       "required": [
@@ -22924,8 +23490,8 @@
         "data"
       ]
     },
-    "Data8": {
-      "title": "Data8",
+    "Data10": {
+      "title": "Data10",
       "example": {
         "messages": [
           {
@@ -23132,7 +23698,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data9"
+          "$ref": "#/definitions/Data11"
         }
       },
       "required": [
@@ -23141,8 +23707,8 @@
         "data"
       ]
     },
-    "Data9": {
-      "title": "Data9",
+    "Data11": {
+      "title": "Data11",
       "example": {
         "event": {
           "type": "message.read",
@@ -23256,7 +23822,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data10"
+          "$ref": "#/definitions/Data12"
         }
       },
       "required": [
@@ -23265,8 +23831,8 @@
         "data"
       ]
     },
-    "Data10": {
-      "title": "Data10",
+    "Data12": {
+      "title": "Data12",
       "example": {
         "users": [
           {
@@ -23573,7 +24139,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data11"
+          "$ref": "#/definitions/Data13"
         }
       },
       "required": [
@@ -23582,8 +24148,8 @@
         "data"
       ]
     },
-    "Data11": {
-      "title": "Data11",
+    "Data13": {
+      "title": "Data13",
       "example": {
         "users": {
           "user-1": {
@@ -24105,7 +24671,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data12"
+          "$ref": "#/definitions/Data14"
         }
       },
       "required": [
@@ -24114,8 +24680,8 @@
         "data"
       ]
     },
-    "Data12": {
-      "title": "Data12",
+    "Data14": {
+      "title": "Data14",
       "example": {
         "user": {
           "id": "jon-snow",
@@ -24768,7 +25334,7 @@
           "type": "string"
         },
         "data": {
-          "$ref": "#/definitions/Data13"
+          "$ref": "#/definitions/Data15"
         }
       },
       "required": [
@@ -24777,8 +25343,8 @@
         "data"
       ]
     },
-    "Data13": {
-      "title": "Data13",
+    "Data15": {
+      "title": "Data15",
       "example": {
         "user": {
           "id": "user-1",
@@ -25011,7 +25577,7 @@
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Data14"
+            "$ref": "#/definitions/Data16"
           }
         }
       },
@@ -25021,8 +25587,8 @@
         "data"
       ]
     },
-    "Data14": {
-      "title": "Data14",
+    "Data16": {
+      "title": "Data16",
       "example": {
         "id": "chrisjdavis",
         "name": "chrisjdavis",
@@ -25181,7 +25747,7 @@
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Data15"
+            "$ref": "#/definitions/Data17"
           }
         }
       },
@@ -25191,8 +25757,8 @@
         "data"
       ]
     },
-    "Data15": {
-      "title": "Data15",
+    "Data17": {
+      "title": "Data17",
       "example": {
         "email": "shirodkarpushkar.9@gmail.com",
         "status": "sent",
@@ -25267,6 +25833,302 @@
         "message",
         "data"
       ]
+    },
+    "getallsenders": {
+      "title": "getallsenders",
+      "example": {
+        "status": 200,
+        "message": "success",
+        "data": [
+          {
+            "sent": 95,
+            "hard_bounces": 1,
+            "soft_bounces": 0,
+            "rejects": 0,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 181,
+            "clicks": 56,
+            "unique_opens": 72,
+            "unique_clicks": 14,
+            "reputation": 0,
+            "address": "bryan@filmio.com",
+            "created_at": "2017-05-30 22:47:13.3244"
+          },
+          {
+            "sent": 0,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 1,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 0,
+            "clicks": 0,
+            "unique_opens": 0,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "bryan@filmio.cpm",
+            "created_at": "2017-05-30 22:38:01.70104"
+          },
+          {
+            "sent": 40,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 0,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 18,
+            "clicks": 0,
+            "unique_opens": 10,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "cjd@filmio.com",
+            "created_at": "2017-05-30 22:46:29.36939"
+          },
+          {
+            "sent": 0,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 4,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 0,
+            "clicks": 0,
+            "unique_opens": 0,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "cjd@filmio.cpm",
+            "created_at": "2017-05-30 22:39:44.47547"
+          },
+          {
+            "sent": 3,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 0,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 17,
+            "clicks": 0,
+            "unique_opens": 3,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "corey@filmio.com",
+            "created_at": "2020-07-07 17:02:07.22165"
+          },
+          {
+            "sent": 0,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 1,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 0,
+            "clicks": 0,
+            "unique_opens": 0,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "coreytest3@test.com",
+            "created_at": "2020-09-01 23:37:01.14727"
+          },
+          {
+            "sent": 40,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 0,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 73,
+            "clicks": 0,
+            "unique_opens": 32,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "ian@filmio.com",
+            "created_at": "2017-09-20 22:48:47.17556"
+          },
+          {
+            "sent": 3,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 0,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 4,
+            "clicks": 0,
+            "unique_opens": 3,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "notifications@filmio.com",
+            "created_at": "2020-09-03 15:44:43.98307"
+          },
+          {
+            "sent": 0,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 1,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 0,
+            "clicks": 0,
+            "unique_opens": 0,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "submissions@film.io",
+            "created_at": "2020-10-27 17:04:56.25006"
+          },
+          {
+            "sent": 28,
+            "hard_bounces": 2,
+            "soft_bounces": 1,
+            "rejects": 7,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 65,
+            "clicks": 0,
+            "unique_opens": 20,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "submissions@filmio.com",
+            "created_at": "2020-10-27 17:08:24.8404"
+          },
+          {
+            "sent": 0,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 1,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 0,
+            "clicks": 0,
+            "unique_opens": 0,
+            "unique_clicks": 0,
+            "reputation": 0,
+            "address": "waitlist@film.io",
+            "created_at": "2020-08-20 20:35:50.45873"
+          },
+          {
+            "sent": 69,
+            "hard_bounces": 0,
+            "soft_bounces": 0,
+            "rejects": 36,
+            "complaints": 0,
+            "unsubs": 0,
+            "opens": 70,
+            "clicks": 2,
+            "unique_opens": 63,
+            "unique_clicks": 1,
+            "reputation": 0,
+            "address": "waitlist@filmio.com",
+            "created_at": "2020-08-20 20:13:59.65354"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data18"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Data18": {
+      "title": "Data18",
+      "example": {
+        "sent": 95,
+        "hard_bounces": 1,
+        "soft_bounces": 0,
+        "rejects": 0,
+        "complaints": 0,
+        "unsubs": 0,
+        "opens": 181,
+        "clicks": 56,
+        "unique_opens": 72,
+        "unique_clicks": 14,
+        "reputation": 0,
+        "address": "bryan@filmio.com",
+        "created_at": "2017-05-30 22:47:13.3244"
+      },
+      "type": "object",
+      "properties": {
+        "sent": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hard_bounces": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "soft_bounces": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rejects": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "complaints": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unsubs": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "opens": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clicks": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unique_opens": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unique_clicks": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reputation": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "address": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sent",
+        "hard_bounces",
+        "soft_bounces",
+        "rejects",
+        "complaints",
+        "unsubs",
+        "opens",
+        "clicks",
+        "unique_opens",
+        "unique_clicks",
+        "reputation",
+        "address",
+        "created_at"
+      ]
     }
   },
   "tags": [
@@ -25275,8 +26137,11 @@
       "description": "user"
     },
     {
+      "name": "Project Connect Settings"
+    },
+    {
       "name": "On Platform Channel",
-      "description": "## CRUD API for Channels \n\n"
+      "description": "CRUD API for Channels \n\n"
     },
     {
       "name": "On Platform GDPR"
