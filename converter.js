@@ -15,7 +15,6 @@ const schema = {
   },
 };
 
-
 const host = "52.172.133.91:5124";
 const basePath = "/api/v1";
 const securityDefinitions = {
@@ -103,6 +102,12 @@ async function convertSwaggerJSON(swaggerJson) {
               (el) => el.name !== "auth"
             );
             reqType.security = security;
+          }
+        }
+        /* query */
+        for (let qObj of reqType.parameters) {
+          if (qObj.in === "query") {
+            qObj.required = false;
           }
         }
         /* responses */
