@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
+    "cli-progress": "^3.8.2",
     "prompt": "^1.0.0"
   }
 }

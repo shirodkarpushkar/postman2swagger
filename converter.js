@@ -3,7 +3,18 @@ const util = require("util");
 const axios = require("axios");
 const apimaticURl = "https://www.apimatic.io";
 const prompt = require("prompt");
+const cliProgress = require("cli-progress");
 const getPrompt = util.promisify(prompt.get).bind(prompt);
+
+const progress = new cliProgress.SingleBar({
+  format:
+    "Progress |" +
+    "{bar}" +
+    "| {percentage}%",
+  barCompleteChar: "\u2588",
+  barIncompleteChar: "\u2591",
+  hideCursor: true,
+});
 
 const schema = {
   properties: {
@@ -129,12 +140,17 @@ async function main() {
   try {
     const question = await getPrompt(schema);
     const fileUrl = question.fileUrl;
+    console.log("...   Converting Postman Collection to Swagger JSON");
+
+    progress.start(100, 0);
     const convertedFile = await transformFile(fileUrl);
-    console.log("...   Conversion Succeeded, Now getting JSON.");
+    progress.update(50);
     const convertedJson = await getTransformFile(convertedFile.generatedFile);
-    console.log("...   Got JSON, Customizing it for better view.");
+    progress.update(75);
     const result = await convertSwaggerJSON(convertedJson);
-    console.log("...   Swagger JSON created. Output file ==> result.json");
+    progress.update(100);
+    progress.stop()
+    console.log("...   Swagger JSON created successfully, output file ==> result.json");
   } catch (error) {
     console.log(" main ~ error", error);
   }
