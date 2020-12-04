@@ -26,8 +26,8 @@ const schema = {
   },
 };
 
-const host = "52.172.133.91:5124";
-const basePath = "/api/v1";
+const host = "52.140.79.232:5124";
+const basePath = "";
 const securityDefinitions = {
   Authorization: {
     type: "apiKey",
