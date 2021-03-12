@@ -25,7 +25,6 @@ const schema = {
   },
 };
 
-const host = "52.140.79.232:5124";
 const basePath = "";
 const securityDefinitions = {
   Authorization: {
@@ -57,20 +56,11 @@ const defaultResponses = {
     description: "Internal Server Error",
   },
 };
-async function transformFile(fileUrl) {
+async function getCollection(fileUrl) {
   try {
     const response = await axios({
-      method: "post",
-      url: `${apimaticURl}/api/transformations`,
-      headers: {
-        "Content-Type": "application/vnd.apimatic.urlTransformDto.v1+json",
-        cookie: userCookie,
-      },
-      data: {
-        exportFormat: "Swagger20",
-        transformationSource: "ViaWeb",
-        fileUrl,
-      },
+      method: "get",
+      url: fileUrl,
     });
     const result = response.data;
     return result;
@@ -140,10 +130,8 @@ async function main() {
     console.log("...   Converting Postman Collection to Swagger JSON");
 
     progress.start(100, 0);
-    const convertedFile = await transformFile(fileUrl);
+    const collection = await getCollection(fileUrl);
     progress.update(50);
-    const convertedJson = await getTransformFile(convertedFile.generatedFile);
-    progress.update(75);
     const result = await convertSwaggerJSON(convertedJson);
     progress.update(100);
     progress.stop();
