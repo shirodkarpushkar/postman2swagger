@@ -1,0 +1,17 @@
+const cookie =
+  "_hjid=7dd7ac19-c82b-449f-bc4d-eb7bfe0c3d6a; _ga=GA1.2.1304799149.1610536209; ajs_user_id=%225f7dca646d4a3b2b5ca494dc%22; ajs_anonymous_id=%224718dda9-71a4-4a59-9cf1-c9e52e6eb228%22; __zlcmid=128jjREo5giTzpT; nf_ab=0.841181; ARRAffinity=d4a4560214f4dc85d7daee51e6fc1642f6c8b71311c4f3e8914ffd673aff1e15; ARRAffinitySameSite=d4a4560214f4dc85d7daee51e6fc1642f6c8b71311c4f3e8914ffd673aff1e15; __RequestVerificationToken=n2FXcyKuAlkM4OPCDwUYtgWYi06qsa5untxRfRUFY4OO-7ZCL0z5z8SPCbsH58CerB3kzs1YarEK8SQFv9WWDelNUyhG4ijjD_TUku7pnYs1; _gid=GA1.2.609894242.1615545822; .AspNet.ApplicationCookie=5q7qCOoU4qMaKh0sBDOEEFr-e-PQ69y_v9iezzdTxn5rNBzSjivmMXpfAm6uoQWJZ4SgFUnCtzRAteA1CaVYM2gXXnTpgzpQAvXOk6SKddXhOIbpLNObO_LjagDu8uUq6FF49h4KhWpECLElc0dH3YSqZCxGShbiER8GrkJWmdNHw0irHje4uVR2KYJGkdk0-zjcE3li26hzwpvBEgB2YRpUxkTc_nUoPdl83Be9S0drM265Q7oDk4q2HGO21XJ9GBiv2wPpFZf66OrAp8ty56SBk0if02c8fKdsFL_2XUJi2XD6-4k1RPzVK11zjLRUPuoWu6vfiSTJgoZxXQrpmuVMZA2eqomSr8m9wvu29GUZF9w1Xh81ofGcWsy6whHu6W2pe6w-opja0RvEstyD4aTNTs25ZPt64hwAKUSxeRTpvIgxc3h01Eo_1z-x0Wt9-7jMId2xuv8DC-bYrZqcgfpCjDe5BJlovC6Zjp059mc";
+
+const result=  cookie
+  .split(";")
+  .map(function (c) {
+    return c.trim().split("=").map(decodeURIComponent);
+  })
+  .reduce(function (a, b) {
+    try {
+      a[b[0]] = JSON.parse(b[1]);
+    } catch (e) {
+      a[b[0]] = b[1];
+    }
+    return a;
+  }, {});
+console.log(" cookieparser.js ~ line 17 ~ result", JSON.stringify(result))
