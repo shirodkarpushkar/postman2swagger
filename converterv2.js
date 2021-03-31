@@ -26,13 +26,13 @@ const schema = {
   },
 };
 
-const host = "52.140.79.232:5124";
 const basePath = "";
 const securityDefinitions = {
   Authorization: {
     type: "apiKey",
-    name: "auth",
+    name: "Authorization",
     in: "header",
+    default: "Bearer {token}",
     description: "Standard Authorization header using the Bearer scheme.",
   },
 };
@@ -105,10 +105,12 @@ async function convertSwaggerJSON(swaggerJson) {
         let reqType = swaggerJson.paths[i][j];
 
         if (reqType.hasOwnProperty("parameters")) {
-          let authParam = reqType.parameters.filter((el) => el.name === "auth");
+          let authParam = reqType.parameters.filter(
+            (el) => el.name === "Authorization"
+          );
           if (authParam.length) {
             reqType.parameters = reqType.parameters.filter(
-              (el) => el.name !== "auth"
+              (el) => el.name !== "Authorization"
             );
             reqType.security = security;
           }
